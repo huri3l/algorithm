@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "LeetCode Top Interview Questions solutions in TypeScript",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
