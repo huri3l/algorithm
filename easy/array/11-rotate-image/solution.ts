@@ -7,7 +7,7 @@
  *
  * Transpose (switch [i][j] with [j][i]) and then flip the rows
  */
-export function solution(matrix: number[][]): number[][] {
+export function solution(matrix: number[][]): void {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = i + 1; j < matrix.length; j++) {
       [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
@@ -17,6 +17,4 @@ export function solution(matrix: number[][]): number[][] {
   for (let i = 0; i < matrix.length; i++) {
     matrix[i].reverse();
   }
-
-  return matrix
 };
