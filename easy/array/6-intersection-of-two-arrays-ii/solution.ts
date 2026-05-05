@@ -11,15 +11,21 @@
  * (to prevent duplicates).
  */
 export function solution(nums1: number[], nums2: number[]): number[] {
-  const seen = new Set(nums1)
-  const res: number[] = []
+  const freq = new Map<number, number>();
+  const res: number[] = [];
 
+  // Count frequencies in nums1
+  for (const num of nums1) {
+    freq.set(num, (freq.get(num) ?? 0) + 1);
+  }
+
+  // Check against nums2
   for (const num of nums2) {
-    if (seen.has(num)) {
-      res.push(num)
-      seen.delete(num)
+    if (freq.has(num) && freq.get(num)! > 0) {
+      res.push(num);
+      freq.set(num, freq.get(num)! - 1);  // Decrement count
     }
   }
 
-  return res
+  return res;
 }
